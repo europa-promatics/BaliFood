@@ -1,0 +1,72 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.synconset.imagepicker": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-sms-plugin": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "209490229604239",
+      "APP_NAME": "BaliFood",
+      "PACKAGE_NAME": "promatics.BaliFood"
+    },
+    "com.napolitano.cordova.plugin.intent": {
+      "PACKAGE_NAME": "promatics.BaliFood"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "PACKAGE_NAME": "promatics.BaliFood"
+    },
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "promatics.BaliFood"
+    }
+  },
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "promatics.Balifood"
+    }
+  }
+}
