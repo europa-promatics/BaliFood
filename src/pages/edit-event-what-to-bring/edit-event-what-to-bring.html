@@ -1,0 +1,49 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title style="text-align:center">{{'create_what_to_bring' | translate}}</ion-title>
+       <!--ion-buttons end (click)="onEvent()">
+         <button ion-button icon-only >
+            <ion-icon name="icon-event" class="camera"></ion-icon>
+         </button>
+      </ion-buttons-->
+   </ion-navbar>
+</ion-header>
+<ion-content class="content" padding>
+   <div class="btn-div">
+      <button ion-button block (click)="onAdd()">
+        {{'add_new_item' | translate}}
+         <ion-icon name="add"></ion-icon>
+      </button>
+   </div>
+   <div *ngIf="Menu_event">
+      <ion-card *ngFor="let Menu of Menu_event" >
+         <ion-card-content *ngIf="Menu.deleted != true">
+		 	 <ion-item>
+		       
+                <ion-icon name="md-create" item-left (click)="onEditItems(Menu)" ></ion-icon>
+                 <ion-icon name="trash" item-left (click)="presentConfirm(Menu._id, Menu)" ></ion-icon>
+				 <ion-icon style="color:orange" *ngIf="Menu.memberId!=me" ios="ios-refresh" md="md-refresh" item-left (click)="onDeleteOwner(Menu)" ></ion-icon>
+		 </ion-item>
+                <ion-item>
+				 <ion-label>{{'what_to_bring' | translate}} {{getTranslation(Menu)}}:</ion-label>
+               <ion-input dir="rtl" type="text" placeholder="Item name" [(ngModel)]="Menu.bringItems" disabled></ion-input>
+            
+            </ion-item>
+             <ion-item>
+              <ion-label>{{'owner_name' | translate}}:</ion-label>
+               <ion-input  dir="rtl" type="text" placeholder="{{'owner' | translate}}" [ngModel]="Menu.memberName" disabled></ion-input>
+			   
+              
+            </ion-item>
+            <ion-item>
+               <ion-label>{{'status' | translate}}:</ion-label>
+               <ion-input  dir="rtl" type="text" placeholder="{{'status' | translate}}" [(ngModel)]="Menu.status" disabled></ion-input>
+              
+            </ion-item>
+         </ion-card-content>
+      </ion-card>
+   </div>
+</ion-content>
+

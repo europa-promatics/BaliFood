@@ -1,0 +1,178 @@
+.hebrew-theme { 
+  $customColor: yellow;
+  $list-md-background-color: $customColor;
+  li .right-content.padding-right-account{
+			padding-right: 0 !important;
+		}
+  .ion-ios-arrow-back {
+    color: #ff8b00;
+    margin: 0 6px;
+    min-width: 44px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.75em;
+}
+.back-button.show-back-button{
+	max-width: 30px;
+    margin-top: 7px;
+
+}
+.menu_box .grid-6 > span {
+
+    float: right;
+
+}
+
+
+.buggu {
+max-width: 35%;
+
+margin-left: 80px;
+}
+.event-box .icon {
+
+    width: 25px;
+    float: right !important;
+
+}
+.list-view {
+
+    width: 100%;
+    float: left;
+    padding: 0px;
+
+}
+  .toolbar-title-md {
+    color: #ff8b00;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0;
+    text-align: center;
+  }
+	.pop {
+
+    width: 15%;
+    position: absolute;
+    top: 30;
+    right: auto;
+    background: #fff;
+    text-align: center;
+    z-index: 1;
+	left:0; 
+
+}	
+.events-pop {
+    position: absolute !important;
+    top: 30 !important;
+    right: auto  !important;
+    background: #fff !important;
+    text-align: center !important;
+    z-index: 1 !important;
+    width: 130px !important;
+	left:0
+}
+
+.alert-button {
+    background-color: transparent;
+    border-radius: 2px;
+    color: #ff8b00;
+    font-weight: 500;
+    margin: 0 8px 0 0;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    text-align: end;
+    text-transform: uppercase;
+    left: 100px;
+}
+
+	.rtl{
+		.right-content.padding-right{
+			padding-right: 0;
+		}
+		.img-left {
+		width: 70px;
+		float: right !important;
+		padding: 5px;
+		
+	}
+		.status-import{
+			right: auto;
+			left: 8px;
+		}
+	}
+	
+	
+	
+.action-sheet-md .action-sheet-icon {
+
+    padding: 0;
+    text-align: center;
+    width: 2.3rem;
+    font-size: 2.4rem;
+    vertical-align: middle;
+    margin: 0 0 0 32px!important ;
+	}
+	
+	.status-import1 {
+		position: absolute;
+		top: 20px;
+		left: 8px;
+		background: #252525;
+		color: #fff;
+		padding: 0px 5px 0px 5px;
+		border-radius: 2px;
+		text-transform: capitalize;
+	}
+	    html[dir="rtl"] .alert-tappable {
+            text-align: right;
+        }
+
+       .alert-radio-icon {
+            left: 0px;
+            right: 13px;
+        }
+		.text-input{
+direction:"rtl";
+}
+.alert-md .alert-radio-icon {
+  right: 13px;
+  top: 0;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #787878;
+}
+
+
+	 
+		.img-left-account{
+			float: right;
+		}
+		.status-import-account{
+			right: auto;
+			left: 8px;
+		}
+	  
+.social-setting li > span.icon .ion-logo-facebook {
+    color: #4061A0;
+    margin-right: -2px;
+}
+		
+			.status-import-account {
+		position: absolute;
+		top: 20px;
+
+		background: #ff8b00;
+		color: #fff;
+		padding: 0px 5px 0px 5px;
+		border-radius: 2px;
+		text-transform: capitalize;
+	}
+		
+		
+}

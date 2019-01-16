@@ -1,0 +1,55 @@
+<ion-header>
+   <ion-navbar >
+      <ion-title>{{'editmenu' | translate}}</ion-title>
+      <ion-buttons start (click)="onClose()">
+         <button ion-button icon-only >
+            <ion-icon name="close" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <ion-card>
+      <ion-card-content>
+         <ion-item >
+            <ion-input type="text" dir="rtl" placeholder="{{'itemname' | translate}}" [(ngModel)]="Menu.item_name" ></ion-input>
+         </ion-item>
+         <ion-item  *ngIf="eventType" (click)="Ownername()">
+         <ion-input dir="rtl" type="text" placeholder="{{'ownername' | translate}}" [(ngModel)]="Menu.owner_name" disabled></ion-input>
+         <ion-icon name="add" item-right ></ion-icon>
+         </ion-item>
+         <ion-item *ngIf="eventType">
+            <ion-label>{{'status' | translate}}</ion-label>
+            <ion-select dir="rtl" [(ngModel)]="Menu.status" okText="{{'done' | translate}}"    cancelText="{{'cancel' | translate}}">
+            <ion-option value="Pending">{{'pending' | translate}}</ion-option>
+            <ion-option value="Confirmed">{{'confirmed' | translate}}</ion-option>
+            <ion-option value="Rejected">{{'rejected' | translate}}</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+         <ion-item>
+            <ion-input dir="rtl" type="text" placeholder="{{'type' | translate}}" [(ngModel)]="Menu.menuType"></ion-input>
+            <!--ion-icon name="ios-arrow-down" item-right></ion-icon-->
+         </ion-item>
+          <!--ion-item>
+            <ion-label>Grade</ion-label>
+            <ion-select [(ngModel)]="Menu.grade">
+            <ion-option value={{a}} *ngFor="let a of grades">{{a}}</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item-->
+
+           <!--ion-item >
+            <ion-input type="tel" placeholder="Score" [(ngModel)]="Menu.score" ></ion-input>
+         </ion-item-->
+         <ion-item (click)="onRecipeLink()">
+            <ion-input dir="rtl" type="text" placeholder="{{'add_recipe_link' | translate}}" [(ngModel)]="recipe_name" disabled></ion-input>
+            <ion-icon name="ios-link" item-right></ion-icon>
+         </ion-item>
+      </ion-card-content>
+   </ion-card>
+</ion-content>
+<ion-footer>
+   <button ion-button block (click)="onSaveMenu()">{{'save' | translate}}</button>
+</ion-footer>
+

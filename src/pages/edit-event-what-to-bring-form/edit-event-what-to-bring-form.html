@@ -1,0 +1,39 @@
+
+
+<ion-header>
+   <ion-navbar>
+      <ion-title style="text-align:center">{{'create_what_to_bring' | translate}}</ion-title>
+      <ion-buttons start (click)="onClose()">
+         <button ion-button icon-only >
+            <ion-icon name="close" class="camera"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content class="content">
+   <ion-card>
+      <ion-card-content>
+         <ion-item (click)="Ownername()" >
+            <ion-input dir="rtl" type="text" placeholder="{{'owner' | translate}}" [(ngModel)]="Menu.memberName" disabled></ion-input>
+            <ion-icon style="font-size: 16px;color:#cecece" name="md-create" item-left></ion-icon>
+         </ion-item>
+         <ion-item >
+            <ion-input  dir="rtl" type="text" placeholder="{{'what_to_bring' | translate}}" [(ngModel)]="bringitem" ></ion-input>
+            <!--ion-icon name="add" item-right ></ion-icon-->
+         </ion-item>
+         <ion-item>
+            <ion-label>{{'status' | translate}}</ion-label>
+            <ion-select [(ngModel)]="Menu.status" okText="{{'done' | translate}}"    cancelText="{{'cancel' | translate}}">
+            <ion-option value="Pending">{{'pending' | translate}}</ion-option>
+            <ion-option value="Confirmed">{{'confirmed' | translate}}</ion-option>
+            <ion-option value="Rejected">{{'rejected' | translate}}</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+      </ion-card-content>
+   </ion-card>
+</ion-content>
+<ion-footer>
+   <button ion-button block (click)="onSaveMenu()">{{'save' | translate}}</button>
+</ion-footer>
+

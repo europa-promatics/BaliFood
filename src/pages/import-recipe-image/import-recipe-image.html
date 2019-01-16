@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar>
+     <ion-buttons start>
+         <button ion-button icon-only (click)="dismiss()">
+            <ion-icon name="close" class="close"></ion-icon>
+         </button>
+      </ion-buttons>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+     <div class="main">
+	 <div class="item-input">
+	    <ion-item>
+               <ion-input type="text" placeholder="{{'recipename' | translate}}"    [(ngModel)]="Recipes.recipeTitle" maxlength="30" minlength="2"></ion-input>
+         </ion-item>
+		 <ion-item>
+             <ion-label>{{'category' | translate}}</ion-label>
+             <ion-select [(ngModel)]="Recipes.categories"  *ngIf="currentLang=='en'" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl">
+            <ion-option  value="{{a.categoryName}}" *ngFor="let a of category_name">{{a.categoryName}}</ion-option>
+           
+			</ion-select> 
+			 <ion-select [(ngModel)]="Recipes.categories"  *ngIf="currentLang=='heb'" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl">
+            <ion-option  value="{{a.categoryName}}" *ngFor="let a of category_name">{{a.categoryNameHerbew}}</ion-option>
+            
+			</ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+	</div>
+         <div class="img-div" >
+            <img src={{pic}} class="main-img">
+         </div>
+         <div class="item-input">
+            <ion-item>
+               <ion-textarea [(ngModel)]="Recipes.description"  
+                placeholder="{{'description' | translate}}"></ion-textarea>
+            </ion-item>
+            
+         </div>
+		  <ion-item class="item-block"  (click)="onMultiImg()">
+            <ion-label class="add-img-icon">{{imagetext | translate}}</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item>
+		 </div>
+   <div class="full-btn">
+      <button ion-button class="btn-left "  (click)="onCancel()">{{'cancel' | translate}}</button>
+      <button ion-button class="btn-right "  (click)="onSave()" >{{'save' | translate}}</button>
+   </div>
+
+</ion-content>

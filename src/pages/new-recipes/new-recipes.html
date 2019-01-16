@@ -1,0 +1,145 @@
+<ion-header>
+   <ion-navbar>
+      <ion-title *ngIf="!edit_recipe_data">{{'newrecipe' | translate}}</ion-title>
+      <ion-title *ngIf="edit_recipe_data">{{edit_recipe_data.recipeTitle}}</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content>
+   <div class="main">
+      <form [formGroup]="loginform">
+         <div class="img-div" (click)="presentActionSheet()">
+            <img src={{pic}} class="main-img">
+         </div>
+         <div class="item-input">
+            <ion-item>
+               <ion-input *ngIf="translate.currentLang=='heb'" dir="rtl" type="text" placeholder="{{'recipename' | translate}}"  formControlName="title"  [(ngModel)]="Recipes.recipeTitle" ></ion-input>
+			    <ion-input *ngIf="translate.currentLang=='en'"  type="text" placeholder="{{'recipename' | translate}}"  formControlName="title"  [(ngModel)]="Recipes.recipeTitle" ></ion-input>
+            </ion-item>
+            <p style="color:#ff8b00"  *ngIf="!loginform.controls.title.valid">
+               {{'recipenamevalid' | translate}} 
+            </p>
+            <ion-item>
+               <ion-textarea [(ngModel)]="Recipes.description"  
+               formControlName="description" placeholder="{{'description' | translate}}"></ion-textarea>
+            </ion-item>
+            <p style="color:#ff8b00"  *ngIf="!loginform.controls.description.valid && (loginform.controls.description.dirty )">* {{'iprqd' | translate}} </p>
+         </div>
+         <div *ngIf="recipeType!='photo'" class="item-left div-color">{{'level' | translate}}</div>
+         <div *ngIf="recipeType!='photo'" class="item-right div-color">{{'time' | translate}}</div>
+         <ion-item class="item-left" *ngIf="recipeType!='photo'">
+            <ion-select [(ngModel)]="Recipes.level" formControlName="level" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl" *ngIf="currentLang=='en'">
+            <ion-option value="Easy" >Easy</ion-option>
+            <ion-option value="Medium">Medium</ion-option>
+            <ion-option value="Hard">Hard</ion-option>
+            </ion-select>
+			 <ion-select [(ngModel)]="Recipes.level" formControlName="level" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl" *ngIf="currentLang=='heb'">
+            <ion-option value="Easy" >קל</ion-option>
+            <ion-option value="Medium">בינוני</ion-option>
+            <ion-option value="Hard">קשה</ion-option>
+            </ion-select>
+            <ion-icon name="ios-browsers-outline" item-right></ion-icon>
+         </ion-item>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.level.valid && (loginform.controls.level.dirty) && recipeType!='photo'">* {{'iprqd' | translate}} </p>
+         <ion-item class="item-right" *ngIf="recipeType!='photo'">
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm"  [(ngModel)]="Recipes.duration" formControlName="time" dir="rtl" [doneText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')"></ion-datetime>
+            <ion-icon name="ios-clock-outline" item-right></ion-icon>
+         </ion-item>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.time.valid && (loginform.controls.time.dirty )">* {{'iprqd' | translate}} </p>
+         <ion-item *ngIf="recipeType!='photo'">
+            <ion-label>{{'mealtype' | translate}}</ion-label>
+            <ion-select [(ngModel)]="Recipes.mealType" formControlName="meal" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" *ngIf="currentLang=='en'">
+            <ion-option value="Kosher Meet" >Kosher Meet</ion-option>
+            <ion-option value="Kosher Diary">Kosher Diary</ion-option>
+            <ion-option value="Kosher Parve">Kosher Parve</ion-option>
+            <ion-option value="Not Kosher Meet" >Not Kosher Meet</ion-option>
+            <ion-option value="Not Kosher Diary">Not Kosher Diary</ion-option>
+            <ion-option value="Not Kosher Veg">Not Kosher Veg</ion-option>
+            </ion-select>
+			
+			<ion-select [(ngModel)]="Recipes.mealType" formControlName="meal" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" *ngIf="currentLang=='heb'">
+            <ion-option value="Kosher Meet" >בשרי כשר</ion-option>
+            <ion-option value="Kosher Diary">חלבי כשר</ion-option>
+            <ion-option value="Kosher Parve">פרווה כשר</ion-option>
+            <ion-option value="Not Kosher Meet" >בשרי לא כשר</ion-option>
+            <ion-option value="Not Kosher Diary">חלבי לא כשר</ion-option>
+            <ion-option value="Not Kosher Veg">פרווה לא כשר</ion-option>
+            </ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.meal.valid && (loginform.controls.meal.dirty ) && recipeType!='photo'">* {{'iprqd' | translate}} </p>
+         <ion-item >
+            <ion-label>{{'category' | translate}}</ion-label>
+            <ion-select [(ngModel)]="Recipes.categories" formControlName="category" *ngIf="currentLang=='en'" formControlName="category" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl">
+            <ion-option  value="{{a.categoryName}}" *ngFor="let a of category_name">{{a.categoryName}}</ion-option>
+           
+			</ion-select> 
+			<ion-select [(ngModel)]="Recipes.categories" formControlName="category"  *ngIf="currentLang=='heb'" formControlName="category" [okText]="translate.instant('done')"    [cancelText]="translate.instant('cancel')" dir="rtl">
+            <ion-option  value="{{a.categoryName}}" *ngFor="let a of category_name">{{a.categoryNameHerbew}}</ion-option>
+            
+			</ion-select>
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+         </ion-item>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.category.valid && (loginform.controls.category.dirty )">* {{'iprqd' | translate}} </p>
+         <div class="ing-div" *ngIf="recipeType!='photo'">
+		 <span [ngClass]="lang=='heb' ? 'btn-ing-heb' : 'btn-ing'" (click)="onIngredients(Recipes.ingredientsValue)">
+               <ion-icon name="md-add" item-right class="add"></ion-icon>
+            </span>
+            <ion-item  class="item-ing">
+               <ion-input dir="rtl" type="text" placeholder="{{'Ingredients' | translate }}" [(ngModel)]="Recipes.ingredientsValue" formControlName="ing"></ion-input>
+            </ion-item>
+            
+         </div>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.ing.valid && (loginform.controls.ing.dirty ) && !ingredients_data && (recipeType!='photo')">* {{'iprqd' | translate}} </p>
+         <div *ngIf="ingredients_data && recipeType!='photo'">
+            <div *ngFor="let a of ingredients_data;let i=index">
+               <div class="div-ingredients">
+                  {{a}}
+                  <span class="edit-close">
+                     <ion-icon name="close" (click)="remove_btn(i)" class="icon-close"></ion-icon>
+                     <ion-icon name="md-create" (click)="ing_edit_btn(i,a)" class="icon-close"></ion-icon>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <div class="ing-div" *ngIf="recipeType!='photo'">
+		  <span [ngClass]="lang=='heb' ? 'btn-ing-heb' : 'btn-ing'"  (click)="onInstruction(Recipes.instructionsValue)">
+               <ion-icon name="md-add" item-right class="add"></ion-icon>
+            </span>
+            <ion-item  class="item-ing">
+               <ion-input dir="rtl" type="text" placeholder="{{'instructions' | translate}}" [(ngModel)]="Recipes.instructionsValue" formControlName="ins"></ion-input>
+            </ion-item>
+           
+         </div>
+         <p style="color:#ff8b00"  *ngIf="!loginform.controls.ins.valid && (loginform.controls.ins.dirty ) && !instructions_data">* {{'iprqd' | translate}}</p>
+         <div *ngIf="instructions_data">
+            <div *ngFor="let a of instructions_data;let i=index">
+               <div class="div-ingredients">
+                  {{a}}
+                  <span class="edit-close">
+                     <ion-icon name="close" (click)="remove_instruction(i)" class="icon-close"></ion-icon>
+                     <ion-icon name="md-create" (click)="inst_edit_btn(i,a)" class="icon-close"></ion-icon>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <ion-item *ngIf="recipeType!='photo'" class="item-left"  (click)="onMultiImg()">
+            <ion-label class="add-img-icon">{{imagetext | translate}}</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item>         
+		 
+		 <!--ion-item   *ngIf="recipeType=='photo'" (click)="onMultiImg()">
+            <ion-label class="add-img-icon">{{imagetext | translate}}</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item-->
+         <ion-item class="item-right" (click)="onVideo()" *ngIf="recipeType!='photo'">
+            <ion-label class="add-img-icon">{{'video' | translate}}</ion-label>
+            <ion-icon name="md-add" item-right class="add-img-icon"></ion-icon>
+         </ion-item>
+      </form>
+   </div>
+   <div class="full-btn">
+      <button ion-button class="btn-left "  (click)="onCancel()">{{'cancel' | translate}}</button>
+      <button ion-button class="btn-right "  (click)="onSave()" [disabled]="!loginform.valid">{{'save' | translate}}</button>
+   </div>
+</ion-content>
+

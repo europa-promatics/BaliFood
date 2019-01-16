@@ -1,0 +1,42 @@
+
+
+<ion-header>
+   <ion-navbar hideBackButton>
+      <ion-title>{{'invite_friends' | translate}}</ion-title>
+	  <ion-buttons left>
+        <button ion-button (click)="goback()">
+           <ion-icon *ngIf="translate.currentLang=='heb'" class="backArrow" name="ios-arrow-back" style=" color: #ff8b00;margin: 0 6px;min-width: 44px; -webkit-box-shadow: none;box-shadow: none;font-size: 1.75em;"></ion-icon>
+           <ion-icon *ngIf="translate.currentLang=='en'" class="backArrow" name="ios-arrow-back" style=" color: #ff8b00;margin: 0 6px;min-width: 44px; -webkit-box-shadow: none;box-shadow: none;font-size: 1.75em;transform: rotate(180deg);"></ion-icon>
+        
+		</button>
+		</ion-buttons>
+      <ion-buttons end (click)="onInviteAll()">
+	  
+         <button ion-button small class="custom-btn">
+         {{'invite_all' | translate}}
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content  class="content rtl">
+   <div class="custom-search1 m-b-10">
+      <ion-searchbar (ionInput)="getItems($event)" placeholder="{{'search_here' | translate}}"></ion-searchbar>
+   </div>
+   <div class="notification-sec" *ngIf="contactData">
+      <ul class="m-0 p-0 user_ul1" type="none" *ngFor="let a of contactData;let i=index" >
+         <li *ngIf="!a.number.isActive">
+            <div class="img-left-account" style="float: right;" *ngIf="currentLang=='heb'"> <img class="circle-img" src="assets/imgs/profiler.png" /> </div>
+            <div class="img-left-account" style="float: left;" *ngIf="currentLang=='en'"> <img class="circle-img" src="assets/imgs/profiler.png" /> </div>
+            
+			<div class="right-content padding-right-account">
+               <h4> {{a.number.name}}</h4>
+               <span style="
+position: absolute;top: 20px;background: #ff8b00;color: #fff;padding: 0px 5px 0px 5px;border-radius: 2px;text-transform: capitalize;right: auto;left: 8px;" (click)="Sendreq(a.number.number,i, a)" *ngIf="!a.number.isInvited && currentLang=='heb'">{{'invite' | translate}} </span>
+               <span class="status-import-account" (click)="Sendreq(a.number.number,i, a)" *ngIf="!a.number.isInvited && currentLang=='en'">{{'invite' | translate}} </span>
+               <span class="status-import-account" (click)="Sendreq(a.number.number,i, a)" *ngIf="a.number.isInvited">{{'re_invite' | translate}} </span>
+            </div>
+         </li>
+      </ul>
+   </div>
+</ion-content>
+

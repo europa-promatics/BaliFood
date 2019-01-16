@@ -1,0 +1,47 @@
+
+
+<ion-header>
+   <ion-navbar hideBackButton>
+      <ion-title> {{'mypost'  | translate}} </ion-title>
+	  	<ion-buttons left>
+        <button ion-button (click)="goback()">
+           <ion-icon *ngIf="translate.currentLang=='heb'" class="backArrow" name="ios-arrow-back" style=" color: #ff8b00;margin: 0 6px;min-width: 44px; -webkit-box-shadow: none;box-shadow: none;font-size: 1.75em;"></ion-icon>
+           <ion-icon *ngIf="translate.currentLang=='en'" class="backArrow" name="ios-arrow-back" style=" color: #ff8b00;margin: 0 6px;min-width: 44px; -webkit-box-shadow: none;box-shadow: none;font-size: 1.75em;transform: rotate(180deg);"></ion-icon>
+        
+		</button>
+		</ion-buttons>
+      <ion-buttons end>
+         <button icon-only ion-button   class="btn-notify" (click)="onIconlist()" *ngIf="list=='true'" >
+         <ion-icon name="icon-listed-view" ></ion-icon>
+         </button>
+         <button icon-only ion-button   class="btn-notify" (click)="onIcongrid()" *ngIf="list!='true'">
+         <ion-icon name="icon-tiled-view"  ></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content>
+   <div class={{listclass}}>
+      <ul class="p-0 list-ul" type="none">
+         <li *ngFor="let a of mydata">
+            <a (click)="onViewDetail(a._id,a)">
+               <img src={{a.mainImage}} />
+               <div class="action-box">
+                  <span> {{a.recipeTitle}} </span>
+               </div>
+               <div class="action-box">
+                  <span>
+                     <ion-icon name="thumbs-up"></ion-icon>
+                     {{a.likes.length}}
+                  </span>
+                  <span class="pull-right">
+                     <ion-icon name="eye"></ion-icon>
+                     {{a.views.length}} 
+                  </span>
+               </div>
+            </a>
+         </li>
+      </ul>
+   </div>
+</ion-content>
+

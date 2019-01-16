@@ -1,0 +1,160 @@
+.english-theme { 
+  $customColor: yellow;
+  $list-md-background-color: $customColor;
+  
+.searchbar-md .searchbar-input {
+direction:ltr;
+}
+
+.back-button.show-back-button {
+    color: #ff8b00;
+    margin: 0 6px;
+    min-width: 44px; 
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.75em;
+    transform: rotate(180deg);
+} 
+
+.customIcon.icon.icon-md.ion-ios-arrow-back {
+    color: #ff8b00;
+    margin: 0 6px;
+    min-width: 44px; 
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.75em;
+    transform: rotate(180deg);
+} 
+
+
+
+.demo-btn {
+    color: #ff8b00;
+    margin: 0 6px;
+    min-width: 44px; 
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 1.75em;
+    transform: rotate(180deg);
+} 
+
+.english-theme.back-button.bar-button.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button{
+color:red;
+}
+
+.show-back-button{
+ 
+    transform: rotate(180deg) !important;
+}  
+
+.events-pop {
+    position: absolute;
+    top: 30;
+    left: 242px;
+    background: #fff;
+    text-align: center;
+    z-index: 1;
+    width: 130px;
+}
+
+  .pop {
+        width: 15%;
+        position: absolute;
+        top: 30;
+        right: 0;
+        background: #fff;
+        text-align: center;
+        z-index: 1;
+    }
+	
+	.action-sheet-md .action-sheet-icon {
+
+    padding: 0;
+    text-align: center;
+    width: 2.3rem;
+    font-size: 2.4rem;
+    vertical-align: middle;
+    margin: 0 32px 0 0!important ;
+	}
+	
+	.list-view {
+  width: 100%;
+  float: left;
+  padding: 0px;
+}
+	  .toolbar-title-md {
+    color: #ff8b00;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0 25px 0 0;
+    text-align: center;
+  }
+	.img-left {
+	
+		width: 70px;
+		float: left !important;
+		padding: 5px;
+	}
+	
+	.status-import-account {
+		position: absolute;
+		top: 20px;
+		right: 8px;
+		background: #ff8b00;
+		color: #fff;
+		padding: 0px 5px 0px 5px;
+		border-radius: 2px;
+		text-transform: capitalize;
+	}
+		
+.status-import1 {
+		position: absolute;
+		top: 20px;
+		right: 8px;
+		background: #252525;
+		color: #fff;
+		padding: 0px 5px 0px 5px;
+		border-radius: 2px;
+		text-transform: capitalize;
+	}
+	.status-import2 {
+		position: absolute;
+		top: 20px;
+		right: 8px;
+		background: #cecece;
+		color: #fff;
+		padding: 0px 5px 0px 5px;
+		border-radius: 2px;
+		text-transform: capitalize;
+	}
+	.right-content.padding-right-account {
+		padding-right: 65px;
+	}
+	.alert-md .alert-radio-icon {
+  left: 13px;
+  top: 0;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #787878;
+}
+	.searchbar-md .searchbar-clear-icon {
+
+    left: 320px !important; 
+
+}
+
+.social-setting li > span.icon .ion-logo-facebook {
+    color: #4061A0;
+    margin-left: -2px;
+}
+
+
+}
+
+
+
